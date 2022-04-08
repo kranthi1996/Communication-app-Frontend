@@ -1,0 +1,12 @@
+<div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true">
+
+    <div class="signup">
+        <form autocomplete="off" [formGroup]="loginForm">
+            <label>Login</label>
+            <input type="email" name="email" placeholder="Email" required="" autocomplete="off" formControlName="email">
+            <input type="password" name="pswd" placeholder="Password" required="" autocomplete="off" formControlName="password">
+            <button (click)="login()">Login</button>
+        </form>
+    </div>
+</div>

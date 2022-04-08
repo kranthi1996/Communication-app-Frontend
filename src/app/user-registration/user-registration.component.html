@@ -1,0 +1,42 @@
+<div class="main" *ngIf="!emailVerify">
+	<input type="checkbox" id="chk" aria-hidden="true">
+
+	<div class="signup">
+		<form autocomplete="false" [formGroup]="signupForm">
+			<label>Sign up</label>
+			<input type="text" name="txt" placeholder="User name" required="" formControlName="name" autocomplete="false" >
+			<input type="email" name="email" placeholder="Email" required="" formControlName="email" autocomplete="false" >
+			<input type="password" name="pswd" placeholder="Password" required="" formControlName="password" autocomplete="false" >
+			<input type="password" name="pswd" placeholder="Confirm password" required="" formControlName="confirmPassword" autocomplete="false">
+			<button (click)="signUp()">Sign up</button>
+		</form>
+	</div>
+
+	<!-- <div class="login">
+				 <form>
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email" name="email" placeholder="Email" required="">
+					<input type="password" name="pswd" placeholder="Password" required="">
+					<button>Login</button> 
+				</form> 
+			</div>  -->
+</div>
+
+
+<div class="main" *ngIf="emailVerify">
+	<input type="checkbox" id="chk" aria-hidden="true">
+
+	<div class="email_verify">
+		<h1>Email verification link has been sent to an email, please verify it.</h1>
+
+	</div>
+
+	<!-- <div class="login">
+				 <form>
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email" name="email" placeholder="Email" required="">
+					<input type="password" name="pswd" placeholder="Password" required="">
+					<button>Login</button> 
+				</form> 
+			</div>  -->
+</div>
