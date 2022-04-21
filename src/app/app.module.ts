@@ -28,6 +28,7 @@ import { EventDetailsComponent } from './event-details/event-details.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { HomeComponent } from './home/home.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { HomeComponent } from './home/home.component';
     MatDialogModule,
     ToastrModule.forRoot(),
     MatIconModule,
-    DragDropModule
+    DragDropModule,
+    MatRadioModule
   ],
   providers: [RequestSenderService, CurdService, SnackBarService, PushNotificationService, DataService],
   bootstrap: [AppComponent]

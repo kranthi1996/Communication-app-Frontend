@@ -10,6 +10,7 @@ import { EventComponent } from "../event/event.component";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  iscreateClick: boolean = false;
   constructor(private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void { }
@@ -20,6 +21,7 @@ export class DashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+    this.iscreateClick = false;
   }
   goToEvent() {
     const dialogRef = this.dialog.open(EventComponent);
@@ -27,9 +29,11 @@ export class DashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+    this.iscreateClick = false;
   }
   goToTaskDetails() {
     this.router.navigate(['dashboard/task-details']);
+    this.iscreateClick = false;
   }
   signOut() {
     localStorage.clear();
@@ -43,5 +47,9 @@ export class DashboardComponent implements OnInit {
     } else if (deviceValue.value == "Go to tasks") {
       this.goToTaskDetails();
     }
+  }
+
+  createClick(): void {
+    this.iscreateClick = !this.iscreateClick;
   }
 }

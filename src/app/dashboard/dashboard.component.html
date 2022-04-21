@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="main_content">
-        <div class="header">
+        <div class="header row-spb">
             Welcome!! Have a nice day.
             <!-- <div class="dropdown">
                 <button class="dropbtn">Dropdown</button>
@@ -28,9 +28,20 @@
                     <a href="#">Link 3</a>
                 </div>
             </div> -->
-            <select (change)="onChange($event.target)">
+            <!-- <select (change)="onChange($event.target)">
                 <option *ngFor="let i of options">{{i}}</option>
-            </select>
+            </select> -->
+
+            <div class="pstn-rlative">
+                <button class="crt-btn" (click)="createClick()">Create</button>
+                <div class="crt-list" *ngIf="iscreateClick">
+                    <ul>
+                        <li (click)="openDialog()">Task</li>
+                        <li (click)="goToEvent()">Event</li>
+                        <li (click)="goToTaskDetails()">Go to tasks</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="info" *ngIf="false">
             <div>

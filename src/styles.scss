@@ -195,3 +195,22 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.row-b {
+  display: flex;
+}
+
+.row-vrt-c {
+  display: flex;
+  align-items: center;
+}
+
+.row-spb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pstn-rlative {
+  position: relative
+} 
