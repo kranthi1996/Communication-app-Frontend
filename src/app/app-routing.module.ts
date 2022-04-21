@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: '', component: UserRegistrationComponent },
   { path: 'login', component: LoginComponent },
   {
-    canActivate: [AuthGuard],
+   // canActivate: [AuthGuard],
     path: 'dashboard',
     component: DashboardComponent,
     children: [
@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   { path: 'confirm/:confirmation_code', component: ConfiramtionEmailComponent, pathMatch: "full" },
   {
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
     path: 'task', component: TaskComponent
   }
 ];
