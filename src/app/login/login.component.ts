@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.curdService.login(this.loginForm.value).subscribe(async (resp: any) => {
       await localStorage.setItem('token', resp.data.token);
-      this.router.navigate(['/dashboard/home']);
+      this.router.navigateByUrl('/dashboard/home');
     }, (err: any) => {
       console.log(err);
       this.toastr.error(err.error.errObj.message);
