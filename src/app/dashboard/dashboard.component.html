@@ -1,1 +1,46 @@
-<h1>Dashboard</h1>
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>Sidebar</h2>
+        <ul>
+            <li [routerLink]="['/dashboard/home']"><a><i class="fas fa-home"></i>Home</a></li>
+            <li [routerLink]="['/dashboard/profile']"><a><i class="fas fa-user"></i>Profile</a></li>
+            <li><a><i class="fas fa-address-card"></i>About</a></li>
+            <li><a><i class="fas fa-project-diagram"></i>portfolio</a></li>
+            <li><a><i class="fas fa-blog"></i>Blogs</a></li>
+            <li><a><i class="fas fa-address-book"></i>Contact</a></li>
+            <li><a><i class="fas fa-map-pin"></i>Map</a></li>
+            <li (click)="signOut()"><a><i class="fas fa-map-pin"></i>Signout</a></li>
+        </ul>
+        <div class="social_media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="main_content">
+        <div class="header">
+            Welcome!! Have a nice day.
+            <!-- <div class="dropdown">
+                <button class="dropbtn">Dropdown</button>
+                <div class="dropdown-content">
+                    <a href="#">Create Task</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </div> -->
+            <select (change)="onChange($event.target)">
+                <option *ngFor="let i of options">{{i}}</option>
+            </select>
+        </div>
+        <div class="info" *ngIf="false">
+            <div>
+                <button (click)="openDialog()">creatTask</button>
+                <button (click)="goToEvent()">goToEvent</button>
+                <button (click)="goToTaskDetails()">goToTaskDetails</button>
+            </div>
+        </div>
+        <div class="info">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

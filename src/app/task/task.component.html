@@ -1,0 +1,14 @@
+<div class="main">
+	<input type="checkbox" id="chk" aria-hidden="true">
+	<div class="signup">
+		<form [formGroup]="taskCreationForm">
+			<label>Create Task</label>
+			<input type="text" name="txt" placeholder="Title" required="" formControlName="title">
+            <input placeholder="priority">
+            <input type="email" name="txt" placeholder="Assign to, enter email whom to assign" required="" formControlName="email">
+            <input type="text" onfocus="(this.type='date')" name="txt" placeholder="Task finsih date" required="" [min]="todayDate" formControlName="finsihTime">
+            <input class ="textarea" type="text" name="txt" placeholder="description" required="" formControlName="description">
+			<button (click)="createTask()">Create</button>
+		</form>
+	</div>
+</div>

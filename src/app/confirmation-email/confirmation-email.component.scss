@@ -10,10 +10,10 @@ body {
   }
   .main {
     width: 612px;
-    //height: 95%;
+    height: 521px;
     overflow: hidden;
-    // background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38")
-    //   no-repeat center/ cover;
+    //background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38")
+      //no-repeat center/ cover;
     border-radius: 10px;
     box-shadow: 5px 20px 50px #000;
     margin-left: auto;
@@ -39,7 +39,7 @@ body {
   }
   input {
     width: 60%;
-    // height: 20px;
+    height: 20px;
     background: #e0dede;
     justify-content: center;
     display: flex;
@@ -90,22 +90,8 @@ body {
   #chk:checked ~ .signup label {
     transform: scale(0.6);
   }
-  h1{
-    color: #573b8a;
-    font-style: bold;
-    margin-left: 20px;
+  .verification {
+    text-align: center;
+    margin-top: 80px;
   }
-  .al_login{
-    margin-left: 15px;
-    margin-top: 48px;
-  }
-  .sp_login{
-    color: #573b8a;
-    cursor: pointer;
-  }
-  h3{
-    margin-left: 124px;
-    color: black;
-    cursor: pointer;
-  }
- 
+  

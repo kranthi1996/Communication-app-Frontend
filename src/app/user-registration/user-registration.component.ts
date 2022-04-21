@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CurdService } from './../services/curd.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,31 +10,34 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./user-registration.component.scss']
 })
 export class UserRegistrationComponent implements OnInit {
-  signup:boolean = true;
-  emailVerify:boolean = false;
+  signup: boolean = true;
+  emailVerify: boolean = false;
   signupForm: FormGroup;
 
   constructor(
-    private curdService:CurdService, private toastr: ToastrService
-  ) { 
+    private curdService: CurdService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {
     this.signupForm = new FormGroup({
       name: new FormControl(),
       email: new FormControl(),
       password: new FormControl(),
-      //confirmPassword: new FormControl(),
+      confirmPassword: new FormControl(),
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   signUp() {
-   console.log(this.signupForm.value)
-   this.curdService.signUp(this.signupForm.value).subscribe((resp: any)=>{
-        console.log(resp);
-        this.emailVerify = true;
-        this.toastr.success(resp.data.message);
-   }, (err: any)=>{
-      console.log(err);
+    console.log(this.signupForm.value)
+    this.curdService.signUp(this.signupForm.value).subscribe((resp: any) => {
+      console.log(resp);
+      this.emailVerify = true;
+    }, (err: any) => {
       this.toastr.error(err.error.errObj.message);
-   });
+    });
+  }
+  goToLogin() {
+    this.router.navigate(['/login']);
   }
 }

@@ -1,0 +1,97 @@
+<div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+                <div class="col-md-3">
+                        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                <input type="file" name="file" id="file" (change)="handleFileInput($event)" />
+                                <img type="file" name="file" id="file" class="rounded-circle mt-5" width="150px"
+                                        [src]="profilePicSrc"><span
+                                        class="text-black-50">{{this.profileData?.email}}</span><span>
+                                </span>
+                        </div>
+                </div>
+
+                <div class="col-md-5" [formGroup]="profileInfoForm">
+                        <div class="p-3x py-5">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="text-right">Profile Settings</h4>
+                                </div>
+                                <div class="row mt-2">
+                                        <div class="col-md-6"><label class="labels">Name</label><input type="text"
+                                                        class="form-control" placeholder="first name" value=""
+                                                        formControlName="first_name"></div>
+                                        <div class="col-md-6"><label class="labels">Surname</label><input type="text"
+                                                        class="form-control" value="" placeholder="surname"
+                                                        formControlName="last_name"></div>
+                                </div>
+                                <div class="row mt-2">
+                                        <div class="col-md-4"><label class="labels">Country code</label><input
+                                                        type="tel" class="form-control" placeholder="+44" value=""
+                                                        formControlName="country_code"></div>
+                                        <div class="col-md-8"><label class="labels">Mobile number</label><input
+                                                        type="tel" class="form-control" value=""
+                                                        placeholder="mobile number" formControlName="mobile_number">
+                                        </div>
+                                </div>
+                                <div class="row mt-3" formGroupName="address">
+                                        <!-- <div class="col-md-12"><label class="labels">Mobile Number</label><input
+                                                                type="text" class="form-control"
+                                                                placeholder="enter phone number" value=""></div> -->
+                                        <div class="col-md-12"><label class="labels">Address Line
+                                                        1</label><input type="text" class="form-control"
+                                                        placeholder="enter address line 1" value=""
+                                                        formControlName="add_line1"></div>
+                                        <!-- <div class="col-md-12"><label class="labels">Address Line 2</label><input
+                                                                type="text" class="form-control"
+                                                                placeholder="enter address line 2" value=""></div> -->
+                                        <div class="col-md-12"><label class="labels">Postcode</label><input type="text"
+                                                        class="form-control" placeholder="enter post code" value=""
+                                                        formControlName="post_code">
+                                        </div>
+                                        <!-- <div class="col-md-12"><label class="labels">State</label><input type="text"
+                                                                class="form-control" placeholder="enter address line 2"
+                                                                value=""></div> -->
+                                        <div class="col-md-12"><label class="labels">Area</label><input type="text"
+                                                        class="form-control" placeholder="enter address line 2" value=""
+                                                        formControlName="add_line2"></div>
+                                        <!-- <div class="col-md-12"><label class="labels">Email ID</label><input type="text"
+                                                                class="form-control" placeholder="enter email id" value="">
+                                                </div> -->
+                                        <!-- <div class="col-md-12"><label class="labels">Education</label><input type="text"
+                                                                class="form-control" placeholder="education" value=""></div> -->
+                                </div>
+                                <div class="row mt-3" formGroupName="address">
+                                        <div class="col-md-6"><label class="labels">Country</label><input type="text"
+                                                        class="form-control" placeholder="country" value=""
+                                                        formControlName="country"></div>
+                                        <div class="col-md-6"><label class="labels">State/Region</label><input
+                                                        type="text" class="form-control" value="" placeholder="state"
+                                                        formControlName="state">
+                                        </div>
+                                </div>
+                                <div class="mt-5 text-center"><button class="btn btn-primary profile-button"
+                                                type="button" (click)="updateProfileInfo()">Save
+                                                Profile</button></div>
+                        </div>
+                </div>
+                <div class="col-md-4" [formGroup]="profileInfoForm">
+                        <div class="p-3 py-5">
+                                <div class="d-flex justify-content-between align-items-center experience">
+                                        <span>Social
+                                                Media
+                                        </span>
+                                </div><br>
+                                <div class="col-md-12"><label class="labels">Facebook</label><input type="text"
+                                                class="form-control" placeholder="facebook" value=""
+                                                formControlName="facebook">
+                                </div> <br>
+                                <div class="col-md-12"><label class="labels">Linkedin</label><input type="text"
+                                                class="form-control" placeholder="linkedin" value=""
+                                                formControlName="linkedin"></div><br>
+                                <div class="col-md-12"><label class="labels">Instagram</label><input type="text"
+                                                class="form-control" placeholder="instagram" value=""
+                                                formControlName="instagram"></div>
+                        </div>
+                </div>
+
+        </div>
+</div>

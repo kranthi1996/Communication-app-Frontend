@@ -4,26 +4,17 @@ import { Subject, Observable, BehaviorSubject } from 'rxjs';
 @Injectable({
     providedIn: 'root'
 })
-export class KanbanDataService {
+export class DataService {
 
-    newBoard = new Subject<any>();
-    toDo = new Subject<any>();
-    description = new Subject<any>();
-    template = new Subject<any>();
+    newTask = new Subject<any>();
+
     constructor() { }
 
-    getNewBoard(): Observable<any> {
-        return this.newBoard.asObservable();
+
+    setCreateTask() {
+        this.newTask.next(true);
     }
-  
-    getTodo(): Observable<any> {
-        return this.toDo.asObservable();
-    }
-   
-    setRefresTemplates () {
-        this.template.next(true);
-    }
-    refreshTemplate(): Observable<any> {
-        return this.template.asObservable();
+    getTaskObservable(): Observable<any> {
+        return this.newTask.asObservable();
     }
 }
