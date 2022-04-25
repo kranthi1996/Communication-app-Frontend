@@ -2,10 +2,11 @@
         <div class="row">
                 <div class="col-md-3">
                         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                <input type="file" name="file" id="file" (change)="handleFileInput($event)" />
+
                                 <img type="file" name="file" id="file" class="rounded-circle mt-5" width="150px"
-                                        [src]="profilePicSrc"><span
-                                        class="text-black-50">{{this.profileData?.email}}</span><span>
+                                        [src]="profilePicSrc">
+                                <input type="file" name="file" id="file" (change)="handleFileInput($event)" />
+                                <span class="text-black-50">{{this.profileData?.email}}
                                 </span>
                         </div>
                 </div>

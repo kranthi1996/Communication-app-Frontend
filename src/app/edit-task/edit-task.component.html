@@ -1,14 +1,14 @@
 <div class="main">
 	<input type="checkbox" id="chk" aria-hidden="true">
 	<div class="signup">
-		<form [formGroup]="taskEditForm">
-			<label>Edit Task</label>
+		<form [formGroup]="taskEditForm" autocomplete="off">
+			<span><label>Task Preview</label></span>
 			<input type="text" name="txt" placeholder="Title" required="" formControlName="title">
             <input placeholder="priority">
             <input type="email" name="txt" placeholder="Assign to, enter email whom to assign" required="" formControlName="email">
             <input type="date" name="txt" placeholder="description" required="" formControlName="finsihTime">
             <input class ="textarea" type="text" name="txt" placeholder="description" required="" formControlName="description">
-			<button>Update</button>
+			<button *ngIf="enableEdit">Update</button>
 		</form>
 	</div>
 </div>

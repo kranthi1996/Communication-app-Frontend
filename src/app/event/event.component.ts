@@ -1,4 +1,10 @@
+import { DataService } from './../services/data.service';
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { CurdService } from '../services/curd.service';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-event',
@@ -6,6 +12,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event.component.scss']
 })
 export class EventComponent implements OnInit {
+  eventForm: FormGroup;
+  inPerson: boolean = false;
+  isPrivate: boolean = false;
   selected = [
     '12:00 AM', '12:15 AM', '12:30 AM', '12:45 AM',
     '1:00 AM', '1:15 AM', '1:30 AM', '1:45 AM',
@@ -32,23 +41,83 @@ export class EventComponent implements OnInit {
     '10:00 PM', '10:15 PM', '10:30 PM', '10:45 PM',
     '11:00 PM', '11:15 PM', '11:30 PM', '11:45 PM',
   ];
+  attendees: any = ['k@gmail.com', 'l@gmail.com', 'm@gmail.com', 'n@gmail.com'];
   selectedTime: any;
   selectedEndTime: any;
   isEndtimeList: boolean = false;
   istimeList: boolean = false;
 
-  constructor() { }
+  constructor(private dataService:DataService, private router: Router, public dialogRef: MatDialogRef<EventComponent>, private fb: FormBuilder, private curdService: CurdService, private toastr: ToastrService) {
+    this.eventForm = this.fb.group({
+      name: ["", [Validators.required, Validators.maxLength(255)]],
+      type: [""],
+      eventaccess: [""],
+      attendees: this.fb.array([]),
+      timezone: [Intl.DateTimeFormat().resolvedOptions().timeZone],
+      startDate: [""],
+      startTime: [""],
+      endDate: [""],
+      endTime: [""],
+      link: [""],
+      description: [""],
+      speakers: [""],
+      address: [""],
+      venue: [""]
+    })
+  }
 
   ngOnInit(): void {
   }
-
+  createEvent() {
+    this.eventForm.value.attendees = this.attendees;
+    console.log(this.eventForm.value);
+    this.curdService.createEvent(this.eventForm.value).subscribe(async (resp: any) => {
+      this.toastr.success(resp.message);
+      this.dataService.setEvent();
+      this.closeDialog();
+      this.router.navigateByUrl('/dashboard/event-details');
+    }, (err: any) => {
+      console.log(err);
+      this.toastr.error(err.error.errObj.message);
+    });
+  }
+  closeDialog() {
+    this.dialogRef.close();
+  }
+  onFocusOutEvent(event: any) {
+    if (event.target.value.includes('@')) {
+      this.attendees.push(event.target.value);
+    }
+  }
+  eventType(event: any) {
+    if (event.value === 'Online') {
+      this.inPerson = false;
+      this.eventForm.patchValue({ type: "ONLINE" });
+    } else if (event.value === 'Inperson') {
+      this.inPerson = true;
+      this.eventForm.patchValue({ type: "INPERSON" });
+    }
+  }
+  eventAccess(event: any) {
+    if (event.value === 'Public') {
+      this.eventForm.patchValue({ eventaccess: "PUBLIC" });
+      this.isPrivate = false;;
+    } else if (event.value === 'Private') {
+      this.eventForm.patchValue({ eventaccess: "PRIVATE" });
+      this.isPrivate = true;
+    }
+  }
+  removeEmail(emails: any, index: any) {
+    this.attendees.splice(index, 1)
+  }
   timeList(): void {
     this.istimeList = !this.istimeList;
     this.isEndtimeList = false;
   }
 
-  onselectedTime(value: any){
+  onselectedTime(value: any) {
     this.selectedTime = value;
+    this.eventForm.patchValue({ startTime: this.selectedTime });
     this.istimeList = false;
   }
 
@@ -59,7 +128,7 @@ export class EventComponent implements OnInit {
 
   onselectedEndTime(value: any) {
     this.selectedEndTime = value;
+    this.eventForm.patchValue({ endTime: this.selectedEndTime });
     this.isEndtimeList = false;
   }
-
 }

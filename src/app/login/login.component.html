@@ -4,8 +4,8 @@
     <div class="signup">
         <form autocomplete="off" [formGroup]="loginForm">
             <label>Login</label>
-            <input type="email" name="email" placeholder="Email" required="" autocomplete="off" formControlName="email">
-            <input type="password" name="pswd" placeholder="Password" required="" autocomplete="off" formControlName="password">
+            <input type="email" name="email" placeholder="Email" required="" formControlName="email"  autocomplete="new-password"> 
+             <input type="password" name="pswd" placeholder="Password" required="" autocomplete="new-password" formControlName="password">
             <h3 (click)="goToForgetPassword()">Forget password?</h3>
             <button (click)="login()">Login</button>
         </form>

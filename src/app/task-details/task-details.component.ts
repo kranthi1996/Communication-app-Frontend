@@ -1,3 +1,4 @@
+import { AuthGuard } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Board } from 'src/app/models/board.model';
@@ -17,7 +18,7 @@ export class TaskDetailsComponent implements OnInit {
   noTasks: boolean = true;
 
 
-  constructor(private curdService: CurdService, private toastr: ToastrService, private dataService: DataService, public dialog: MatDialog) {
+  constructor(private curdService: CurdService, private toastr: ToastrService, private dataService: DataService, private authGuard: AuthGuard, public dialog: MatDialog) {
     this.dataService.getTaskObservable().subscribe(data => {
       if (data) {
         this.getTasks();
@@ -49,7 +50,7 @@ export class TaskDetailsComponent implements OnInit {
     this.curdService.getTasks().subscribe(async (resp: any) => {
       console.log(resp.data);
       this.tasks = resp.data;
-      if(this.tasks[0].tasks.length == 0 &&  this.tasks[1].tasks.length == 0 &&   this.tasks[1].tasks.length == 0){
+      if (this.tasks[0].tasks.length == 0 && this.tasks[1].tasks.length == 0 && this.tasks[2].tasks.length == 0) {
         this.noTasks = true;
       } else {
         this.noTasks = false;
@@ -79,11 +80,13 @@ export class TaskDetailsComponent implements OnInit {
         return 0;
     }
   }
-  openDialog(item:any) {
-    //item.created_by == ?
-    const dialogRef = this.dialog.open(EditTaskComponent, {data:item});
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  async openDialog(item: any) {
+    const userObj:any = await this.authGuard.decodedToken();
+   // if (userObj._id == item.id) {
+      const dialogRef = this.dialog.open(EditTaskComponent, { data: item });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+   // }
   }
 }

@@ -7,6 +7,7 @@ import { Subject, Observable, BehaviorSubject } from 'rxjs';
 export class DataService {
 
     newTask = new Subject<any>();
+    newEvent = new Subject<any>();
 
     constructor() { }
 
@@ -16,5 +17,11 @@ export class DataService {
     }
     getTaskObservable(): Observable<any> {
         return this.newTask.asObservable();
+    }
+    setEvent() {
+        this.newEvent.next(true);
+    }
+    getEventObservable(): Observable<any> {
+        return this.newEvent.asObservable();
     }
 }

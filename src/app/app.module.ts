@@ -29,6 +29,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { HomeComponent } from './home/home.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { EditEventComponent } from './edit-event/edit-event.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { MatRadioModule } from '@angular/material/radio';
     EventDetailsComponent,
     ProfileComponent,
     EditTaskComponent,
-    HomeComponent
+    HomeComponent,
+    EditEventComponent,
+    ForgetPasswordComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

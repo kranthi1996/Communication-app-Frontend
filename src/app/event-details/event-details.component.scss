@@ -1,0 +1,107 @@
+h1{
+    color: black;
+}
+// .today--cards {
+//     display: flex;
+//     grid-template-columns: 1fr 1fr 1fr;
+//     grid-gap: 22px;
+//     margin-bottom: 24px;
+//     .today--card {
+//         height: 203px;
+//         padding: 78px;
+//         border-radius: 14px;
+//     }
+//     // .first-card {
+//     //     background-color: #f7f9fd;
+//     // }
+//     .event--card {
+//         box-shadow: 0 10px 22px 0 rgba(0, 0, 0, 0.06);
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-between;
+//         position: relative;
+//         &:not(.yellow-card):hover,
+//         &:not(.yellow-card).active {
+//             color: #ffffff;
+//             h3 {
+//                 color: #ffffff;
+//             }
+//         }
+//         &:after {
+//             content: "";
+//             position: absolute;
+//             width: 100%;
+//             height: 30px;
+//             bottom: 0;
+//             left: 0;
+//             z-index: 0;
+//             background: transparent;
+//             border-radius: 14px;
+//             transition: 0.3s;
+//         }
+//     }
+//     .red-card {
+//         cursor: pointer;
+//         &:hover,
+//         &.active {
+//             background-color: grey;
+//         }
+//         &:hover {
+//             &::after {
+//                 box-shadow: 0 8px 30px -6px rgba($color: grey, $alpha: 0.6);
+//             }
+//         }
+//     }
+//     .violet-card {
+//         cursor: pointer;
+//         &:hover,
+//         &.active {
+//             background-color: violet;       
+//         }
+//         &:hover {
+//             &::after {
+//                 box-shadow: 0 8px 30px -6px rgba($color: violet, $alpha: 0.6);
+//             }
+//         }
+//     }
+//     h3 {
+//         font-size: 14px;
+//         font-weight: normal;
+//         color: #000000;
+//         line-height: 21px;
+//     }
+//     h4 {
+//         font-size: 16px;
+//         font-weight: normal;
+//         color: #000000;
+//         line-height: 28px;
+//     }
+//     h2 {
+//         font-size: 22px;
+//         font-weight: 600;
+//         color: #000000;
+//         line-height: 28px;
+//         margin-bottom: 5px;
+//     }
+//     p {
+//         font-size: 12px;
+//         font-weight: normal;
+//         color: #292929;
+//         line-height: 16px;
+//     }
+//     .icon-div {
+//         display: flex;
+//     }
+// }
+
+
+ .test {
+    display: flex;
+    flex-direction: row;
+    .card {
+       
+    }
+    .card:hover{
+        cursor: pointer;
+    }
+}

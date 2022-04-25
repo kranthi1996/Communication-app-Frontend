@@ -46,7 +46,7 @@ export class ProfileComponent implements OnInit {
     reader.readAsDataURL(file);
     // this.fileToUpload = files.item(0);
   }
-  getProfileInfo() {
+   getProfileInfo() {
    const imgData =  localStorage.getItem("imgData");
    if(imgData) {
      this.profilePicSrc = imgData;

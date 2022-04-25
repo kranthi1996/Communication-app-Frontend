@@ -44,10 +44,26 @@ export class CurdService {
       method: 'POST',
       body: postObj
     }
-    //localStorage['t = JSON.parse(localStorage.getItem("token"));
+
     return this.requestSenderService.send(requestObj);
   }
-
+  //event 
+  createEvent(postObj: any) {
+    const requestObj = {
+      path: 'event/create',
+      method: 'POST',
+      body: postObj
+    }
+    return this.requestSenderService.send(requestObj);
+  }
+  updateEvent(updateObj: any) {
+    const requestObj = {
+      path: 'event/update',
+      method: 'PUT',
+      body: updateObj
+    }
+    return this.requestSenderService.send(requestObj);
+  }
   getTasks() {
     const requestObj = {
       path: 'task/',
@@ -55,7 +71,37 @@ export class CurdService {
     }
     return this.requestSenderService.send(requestObj);
   }
-  updatTaskUserStatus(updateObj:any) {
+  getPublicEvents() {
+    const requestObj = {
+      path: 'event/publicevents',
+      method: 'GET'
+    }
+    return this.requestSenderService.send(requestObj);
+  }
+  getPrivateEvents() {
+    const requestObj = {
+      path: 'event/privateevents',
+      method: 'GET'
+    }
+    return this.requestSenderService.send(requestObj);
+  }
+  forgetPassword(postObj: any) {
+    const requestObj = {
+      path: 'user/forget_password',
+      method: 'POST',
+      body: postObj
+    }
+    return this.requestSenderService.send(requestObj);
+  }
+  changePassword(postObj: any) {
+    const requestObj = {
+      path: 'user/change_password',
+      method: 'PUT',
+      body: postObj
+    }
+    return this.requestSenderService.send(requestObj);
+  }
+  updatTaskUserStatus(updateObj: any) {
     const requestObj = {
       path: 'task/task_user_status',
       method: 'PUT',
@@ -70,11 +116,11 @@ export class CurdService {
     }
     return this.requestSenderService.send(requestObj);
   }
-  updateProfileInfo(Obj:any) {
+  updateProfileInfo(Obj: any) {
     const requestObj = {
       path: 'user/profileInfo',
       method: 'PUT',
-      body:Obj
+      body: Obj
     }
     return this.requestSenderService.send(requestObj);
   }

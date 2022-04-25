@@ -9,28 +9,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm:FormGroup;
-  constructor( private curdService:CurdService, private toastr: ToastrService, private router: Router) { 
+  loginForm: FormGroup;
+  constructor(private curdService: CurdService, private toastr: ToastrService, private router: Router) {
     this.loginForm = new FormGroup({
       email: new FormControl(),
       password: new FormControl()
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   login() {
     this.curdService.login(this.loginForm.value).subscribe(async (resp: any) => {
       await localStorage.setItem('token', resp.data.token);
       this.router.navigateByUrl('/dashboard/home');
     }, (err: any) => {
       console.log(err);
-      this.toastr.error(err.error.errObj.message);
+      this.toastr.error(err.error.message);
     });
   }
   goToLogin() {
     this.router.navigate(['/']);
   }
   goToForgetPassword() {
-    alert("Need to implement");
+    this.router.navigateByUrl('/forget-password');
   }
 }

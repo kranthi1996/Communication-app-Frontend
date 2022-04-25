@@ -1,6 +1,7 @@
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AuthGuard } from '../services/auth.service';
 
 @Component({
   selector: 'app-edit-task',
@@ -9,9 +10,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class EditTaskComponent implements OnInit {
   taskEditForm: FormGroup;
-  constructor(private fb: FormBuilder, 
+  enableEdit:boolean = false;
+  constructor(private fb: FormBuilder, private authGuard: AuthGuard,
     public dialogRef: MatDialogRef<EditTaskComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,) {
+    @Inject(MAT_DIALOG_DATA) public data: any) {
     this.taskEditForm = this.fb.group({
       title: [this.data.title, [Validators.required, Validators.maxLength(255)]],
       priority: [this.data.priority],
@@ -22,7 +24,12 @@ export class EditTaskComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    console.log("edit task",this.data)
+    console.log("edit task",this.data);
+    const userObj:any =  this.authGuard.decodedToken();
+    if (userObj._id == this.data.created_by && this.data?.taskUsers[0].status !== 3) { 
+      this.enableEdit = true;
+    } else {
+      this.enableEdit = false;
+    }
   }
-
 }
