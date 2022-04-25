@@ -11,8 +11,192 @@ import { DataService } from '../services/data.service';
 })
 export class EventDetailsComponent implements OnInit {
 
-  publicEvents: any;
-  privateEvents: any;
+  publicEvents: any = [
+      {
+      name:'welcome to Hyderabad Telangana Indaia',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      }
+  ];
+  privateEvents: any = [
+    {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      },
+      {
+      name:'hello',
+      startDate:'20-12-2022',
+      startTime:'12:56 AM',
+      endDate:'20-12-2022',
+      endTime:'12:56 AM'
+      }
+  ];
   constructor(private dataService: DataService, public dialog: MatDialog, private curdService: CurdService, private toastr: ToastrService) {
     this.dataService.getEventObservable().subscribe(data => {
       if (data) {

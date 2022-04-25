@@ -54,7 +54,7 @@
                 <div class="flx01 pstn-rlative">
                     <div class="colmn-fields">
                         <label>Start Time</label>
-                        <button class="time-btn" (click)="timeList()">{{selectedTime}}</button>
+                        <button type="button" class="time-btn" (click)="timeList()">{{selectedTime}}</button>
                     </div>
                     <div *ngIf="istimeList" class="timelist-menu">
                         <ul>
@@ -74,7 +74,7 @@
                 <div class="flx01 pstn-rlative">
                     <div class="colmn-fields">
                         <label>End Time</label>
-                        <button class="time-btn" (click)="timeEndList()">{{selectedEndTime}}</button>
+                        <button type="button" class="time-btn" (click)="timeEndList()">{{selectedEndTime}}</button>
                     </div>
                     <div *ngIf="isEndtimeList" class="timelist-menu">
                         <ul>

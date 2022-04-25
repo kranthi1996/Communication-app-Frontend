@@ -95,37 +95,38 @@
 </div> -->
 
 
-
-<h1>Public events</h1><br/>
-<div class ="test">
-    <div class="card"  *ngFor="let event of publicEvents" (click)="eventPreview(event)">
-        <!-- <img class="card-img-top"
+<div class="main-container">
+  <h2>Public Events</h2>
+  <div class="event-details-container">
+    <div class="evnt-dtl-card" *ngFor="let event of publicEvents" (click)="eventPreview(event)">
+      <img class="card-img-top"
             src="https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:200/https://www.filepicker.io/api/file/SVFQZQAyRpqJ31f6LNGe"
-            alt="Card image cap"> -->
-        <div class="card-body">
-            <h5 class="card-title">{{event.name}}</h5>
-            <h5 class="card-title">StartTime: {{event.startDate.split('T')[0]}} {{event.startTime}}</h5>
-            <h5 class="card-title">EndTime: {{event.endDate?.split('T')[0]}} {{event?.endTime}}</h5>
-            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            alt="Card image cap">
+      <div class="card-body">
+        <h3 class="card-title">{{event.name}}</h3>
+        <p class="time-stamp">StartTime: {{event.startDate.split('T')[0]}} {{event.startTime}}</p>
+        <p class="time-stamp">EndTime: {{event.endDate?.split('T')[0]}} {{event?.endTime}}</p>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a> -->
-        </div>
+      </div>
     </div>
-</div>
-
-<h1>Private events</h1><br/>
-<div class ="test">
-    <div class="card"  *ngFor="let event of privateEvents" (click)="eventPreview(event)">
-        <!-- <img class="card-img-top"
+  </div>
+  <br>
+  <h2>Private Events</h2>
+  <div class="event-details-container">
+    <div class="evnt-dtl-card" *ngFor="let event of privateEvents" (click)="eventPreview(event)">
+      <img class="card-img-top"
             src="https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:200/https://www.filepicker.io/api/file/SVFQZQAyRpqJ31f6LNGe"
-            alt="Card image cap"> -->
-        <div class="card-body">
-            <h5 class="card-title">{{event.name}}</h5>
-            <h5 class="card-title">StartTime: {{event.startDate.split('T')[0]}} {{event.startTime}}</h5>
-            <h5 class="card-title">EndTime: {{event.endDate?.split('T')[0]}} {{event?.endTime}}</h5>
-            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            alt="Card image cap">
+      <div class="card-body">
+        <h3 class="card-title">{{event.name}}</h3>
+        <p class="time-stamp">StartTime: {{event.startDate.split('T')[0]}} {{event.startTime}}</p>
+        <p class="time-stamp">EndTime: {{event.endDate?.split('T')[0]}} {{event?.endTime}}</p>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a> -->
-        </div>
+      </div>
     </div>
+  </div>
 </div>
