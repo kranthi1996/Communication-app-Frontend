@@ -1,0 +1,112 @@
+<div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true">
+    <div class="signup">
+        <h1>Event Preview</h1>
+        <form [formGroup]="eventForm" autocomplete="off">
+
+            <div>
+                <label>Event name</label>
+                <input type="text" name="txt" placeholder="Title" required="" formControlName="name">
+            </div>
+            <div class="radio-btns mb20 colmn-fields">
+                <label>Event type</label>
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="Online" class="mr30" (change)="eventType($event)"
+                        [checked]="data?.type === 'ONLINE'">Online</mat-radio-button>
+                    <mat-radio-button value="Inperson" (change)="eventType($event)"
+                        [checked]="data?.type === 'INPERSON'">In person</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+
+            <div class="radio-btns mb20 colmn-fields">
+                <label>Public/Private</label>
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="Public" class="mr30" (change)="eventAccess($event)"
+                        [checked]="data?.eventaccess === 'PUBLIC'">Public</mat-radio-button>
+                    <mat-radio-button value="Private" (change)="eventAccess($event)"
+                        [checked]="data?.eventaccess === 'PRIVATE'">Private</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <!-- <select>
+                <option>Event access</option>
+                <option>Public</option>
+                <option>Private</option>
+            </select> -->
+            <!-- <img type="file"> -->
+            <div class="pstn-rlative">
+                <label>attendees</label>
+                <ng-container>
+                    <input type="email" name="txt" placeholder="Assign to, enter email whom to assign" 
+                    required="" (focusout)="onFocusOutEvent($event)">
+                    <ng-container *ngFor="let email of attendees; index as i">
+                        <div class="chip-text">
+                            <span>{{email}}</span>&nbsp;<span class="remove_email" (click)="removeEmail(i)">x</span>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+            <div class="row-b">
+                <div class="mr30 flx01">
+                    <label>Start Date</label>
+                    <input type="text" onfocus="(this.type='date')" name="txt" placeholder="Start date" required=""
+                        formControlName="startDate">
+                </div>
+                <div class="flx01 pstn-rlative">
+                    <div class="colmn-fields">
+                        <label>Start Time</label>
+                        <button class="time-btn" (click)="timeList()">{{selectedTime}}</button>
+                    </div>
+                    <div *ngIf="istimeList" class="timelist-menu">
+                        <ul>
+                            <li *ngFor="let value of selected" (click)="onselectedTime(value)">
+                                {{value}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row-b">
+                <div class="mr30 flx01">
+                    <label>End Date</label>
+                    <input type="text" onfocus="(this.type='date')" name="txt" placeholder="Finsih date" required=""
+                        formControlName="endDate">
+                </div>
+                <div class="flx01 pstn-rlative">
+                    <div class="colmn-fields">
+                        <label>End Time</label>
+                        <button class="time-btn" (click)="timeEndList()">{{selectedEndTime}}</button>
+                    </div>
+                    <div *ngIf="isEndtimeList" class="timelist-menu">
+                        <ul>
+                            <li *ngFor="let value of selected" (click)="onselectedEndTime(value)">
+                                {{value}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label>Link</label>
+                <input class="textarea" type="text" name="txt" placeholder="link" required="" formControlName="link">
+            </div>
+            <div>
+                <label>Address</label>
+                <input class="textarea" type="text" name="txt" placeholder="E.g., street, city, pincode, etc.,"
+                    required="" formControlName="address">
+            </div>
+            <div>
+                <label>Venue</label>
+                <input class="textarea" type="text" name="txt" placeholder="E.g. floor number, room number, etc."
+                    required="" formControlName="venue">
+            </div>
+            <div>
+                <label>Description</label>
+                <textarea class="textarea" type="text" name="txt" placeholder="description" required=""
+                    formControlName="description"></textarea>
+            </div>
+            <button class="crt-btn" (click)="updateEvent()">Update</button>
+        </form>
+    </div>
+</div>
