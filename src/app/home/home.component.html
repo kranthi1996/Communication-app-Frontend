@@ -1,106 +1,9 @@
-<!-- (click)="showEventListView2('meeting')"
-<h1>Public events</h1>
-<div class="today--cards">
-    <div [ngClass]="{'active': 'meeting' === 'meeting'}" class="today--card event--card red-card"
-        *ngFor="let event of publicEvents" (click)="eventPreview(event)">
-        <div class="icon-div">
-            <svg style="width: 28px;height: 28px" xmlns="http://www.w3.org/2000/svg" width="21" height="21"
-                viewBox="0 0 21 21">
-                <g transform="translate(-1931 -154)">
-                    <path d="M0 0H21V21H0z" transform="translate(1931 154)" style="opacity:.305;fill:none" />
-                    <g transform="translate(1895.628 111.385)">
-                        <g transform="translate(38.372 47.615)">
-                            <g transform="translate(10.357 1.108)">
-                                <circle cx="1.837" cy="1.837" r="1.837"
-                                    style="fill:none;stroke: currentColor;;stroke-linecap:round;stroke-width:.75px"
-                                    transform="translate(.418)" />
-                                <path d="M56.144 59.765h3.834a3.329 3.329 0 00-3.329-3.329 3.255 3.255 0 00-2.256.892"
-                                    style="fill:none;stroke: currentColor;;stroke-linecap:round;stroke-width:.75px"
-                                    transform="translate(-54.392 -51.842)" />
-                            </g>
-                            <g transform="translate(0 1.108)">
-                                <circle cx="1.837" cy="1.837" r="1.837"
-                                    style="fill:none;stroke: currentColor;;stroke-linecap:round;stroke-width:.75px"
-                                    transform="translate(1.495)" />
-                                <path d="M43.977 57.348a3.25 3.25 0 00-2.276-.912 3.329 3.329 0 00-3.329 3.329h3.885"
-                                    style="fill:none;stroke: currentColor;;stroke-linecap:round;stroke-width:.75px"
-                                    transform="translate(-38.372 -51.842)" />
-                            </g>
-                            <g transform="translate(3.735)">
-                                <circle cx="2.351" cy="2.351" r="2.351"
-                                    style="fill:none;stroke: currentColor;;stroke-linecap:round;stroke-width:.75px"
-                                    transform="translate(1.91)" />
-                                <path d="M48.409 56.7a4.261 4.261 0 00-4.26 4.26h8.521a4.26 4.26 0 00-4.26-4.26z"
-                                    style="fill:none;stroke: currentColor;;stroke-linecap:round;stroke-width:.75px"
-                                    transform="translate(-44.149 -50.829)" />
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </svg>
-        </div>
-        <h3>
-            {{event?.name}}
-        </h3>
-    </div>
-</div> -->
-
-
-
-<!-- (click)="showEventListView2('meeting')" -->
-<!-- <h1>Private events</h1>
-<div class="today--cards">
-    <div [ngClass]="{'active': 'meeting' === 'meeting'}" class="today--card event--card red-card"
-        *ngFor="let event of privateEvents" (click)="eventPreview(event)">
-        <div class="icon-div">
-            <svg style="width: 28px;height: 28px" xmlns="http://www.w3.org/2000/svg" width="21" height="21"
-                viewBox="0 0 21 21">
-                <g transform="translate(-1931 -154)">
-                    <path d="M0 0H21V21H0z" transform="translate(1931 154)" style="opacity:.305;fill:none" />
-                    <g transform="translate(1895.628 111.385)">
-                        <g transform="translate(38.372 47.615)">
-                            <g transform="translate(10.357 1.108)">
-                                <circle cx="1.837" cy="1.837" r="1.837"
-                                    style="fill:none;stroke: currentColor;;stroke-linecap:round;stroke-width:.75px"
-                                    transform="translate(.418)" />
-                                <path d="M56.144 59.765h3.834a3.329 3.329 0 00-3.329-3.329 3.255 3.255 0 00-2.256.892"
-                                    style="fill:none;stroke: currentColor;;stroke-linecap:round;stroke-width:.75px"
-                                    transform="translate(-54.392 -51.842)" />
-                            </g>
-                            <g transform="translate(0 1.108)">
-                                <circle cx="1.837" cy="1.837" r="1.837"
-                                    style="fill:none;stroke: currentColor;;stroke-linecap:round;stroke-width:.75px"
-                                    transform="translate(1.495)" />
-                                <path d="M43.977 57.348a3.25 3.25 0 00-2.276-.912 3.329 3.329 0 00-3.329 3.329h3.885"
-                                    style="fill:none;stroke: currentColor;;stroke-linecap:round;stroke-width:.75px"
-                                    transform="translate(-38.372 -51.842)" />
-                            </g>
-                            <g transform="translate(3.735)">
-                                <circle cx="2.351" cy="2.351" r="2.351"
-                                    style="fill:none;stroke: currentColor;;stroke-linecap:round;stroke-width:.75px"
-                                    transform="translate(1.91)" />
-                                <path d="M48.409 56.7a4.261 4.261 0 00-4.26 4.26h8.521a4.26 4.26 0 00-4.26-4.26z"
-                                    style="fill:none;stroke: currentColor;;stroke-linecap:round;stroke-width:.75px"
-                                    transform="translate(-44.149 -50.829)" />
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </svg>
-        </div>
-        <h3>
-            {{event?.name}}
-        </h3>
-    </div>
-</div> -->
-
-
 <div class="main-container">
     <h2>Today public Events</h2>
     <div class="event-details-container">
         <h3 *ngIf="todayPublicEvents?.length===0">No events found</h3>
         <div class="evnt-dtl-card" *ngFor="let event of todayPublicEvents" (click)="eventPreview(event)">
-             <!-- <img class="card-img-top"
+            <!-- <img class="card-img-top"
             src="https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:200/https://www.filepicker.io/api/file/SVFQZQAyRpqJ31f6LNGe"
             alt="Card image cap">  -->
             <div class="card-body">
@@ -115,43 +18,18 @@
     </div>
     <br>
     <h2>Today Private Events</h2>
+
     <div class="event-details-container">
         <h3 *ngIf="todayPriavateEvents?.length===0">No events found</h3>
         <div class="evnt-dtl-card" *ngFor="let event of todayPriavateEvents" (click)="eventPreview(event)">
             <!-- <img class="card-img-top"
             src="https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:200/https://www.filepicker.io/api/file/SVFQZQAyRpqJ31f6LNGe"
-            alt="Card image cap"> -->
+            alt="Card image cap">  -->
             <div class="card-body">
                 <h3 class="card-title">{{event.name}}</h3>
                 <p class="time-stamp">StartTime: {{event.startDate.split('T')[0]}} {{event.startTime}}</p>
                 <p class="time-stamp">EndTime: {{event.endDate?.split('T')[0]}} {{event?.endTime}}</p>
-                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a> -->
-
-           
-                <!-- <button id="f-m-trash" appCustomizeTooltip="Trash" class="delete_icon" (click)="deleteEvent(event)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14.66" height="16.178"
-                        viewBox="0 0 14.66 16.178">
-                        <g id="prefix__trash-2" transform="translate(.5 .5)">
-                            <path id="prefix__Path_191643" d="M3 6h13.66"
-                                style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round"
-                                data-name="Path 191643" transform="translate(-3 -2.964)" />
-                            <path id="prefix__Path_191644"
-                                d="M15.624 5.036V15.66a1.518 1.518 0 0 1-1.518 1.518H6.518A1.518 1.518 0 0 1 5 15.66V5.036m2.277 0V3.518A1.518 1.518 0 0 1 8.794 2h3.036a1.518 1.518 0 0 1 1.518 1.518v1.518"
-                                style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round"
-                                data-name="Path 191644" transform="translate(-3.482 -2)" />
-                            <path id="prefix__Line_849" d="M0 0L0 5"
-                                style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round"
-                                data-name="Line 849" transform="translate(4.83 6.589)" />
-                            <path id="prefix__Line_850" d="M0 0L0 5"
-                                style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round"
-                                data-name="Line 850" transform="translate(8.83 6.589)" />
-                        </g>
-                    </svg>
-                </button> -->
             </div>
-            
         </div>
     </div>
 </div>

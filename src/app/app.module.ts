@@ -32,7 +32,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,9 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     HomeComponent,
     EditEventComponent,
     ForgetPasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ContactComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

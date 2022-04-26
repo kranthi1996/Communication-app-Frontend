@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Contact, report an issue</h2>
+    <h3>Please if you find any issue please report, and you can fill the form let us know what's you're thinking </h3>
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+        <div class="signup">
+            <form autocomplete="off" [formGroup]="contactForm">
+                <label>Fill the form</label>
+                <input type="text" name="txt" placeholder="Subject" required="" formControlName="subject">
+                <input placeholder="name" formControlName="name">
+                <input type="email" name="txt" placeholder="email" required="" formControlName="email">
+                <input class ="textarea" type="text" name="txt" placeholder="description" required="" formControlName="description">
+                <button class="crt-btn" (click)="submit()">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

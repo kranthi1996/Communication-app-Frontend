@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CurdService } from '../services/curd.service';
 import { ToastrService } from 'ngx-toastr';
-import { DataService } from '../services/data.service';
+import { AuthGuard } from '../services/auth.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { DataService } from '../services/data.service';
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
@@ -38,9 +39,10 @@ export class TaskComponent implements OnInit {
     '8:00 PM', '8:15 PM', '8:30 PM', '8:45 PM',
     '9:00 PM', '9:15 PM', '9:30 PM', '9:45 PM',
     '10:00 PM', '10:15 PM', '10:30 PM', '10:45 PM',
-    '11:00 PM', '11:15 PM', '11:30 PM', '11:45 PM',
-  ];
-  constructor(public dialogRef: MatDialogRef<TaskComponent>, private fb: FormBuilder, private curdService: CurdService, private toastr: ToastrService, private dataService: DataService) {
+    '11:00 PM', '11:15 PM', '11:30 PM', '11:45 PM'
+   ];
+
+  constructor(private authService: AuthGuard, public dialogRef: MatDialogRef<TaskComponent>, private fb: FormBuilder, private curdService: CurdService, private toastr: ToastrService, private dataService: DataService) {
     this.taskCreationForm = this.fb.group({
       title: ["", [Validators.required, Validators.maxLength(255)]],
       priority: [""],
@@ -53,8 +55,15 @@ export class TaskComponent implements OnInit {
   }
 
   ngOnInit(): void { }
+  addCurrentUserToAttedees() {
+    const tokenObj: any = this.authService.decodedToken();
+    if (!this.taskCreationForm.value.taskUsers.includes(tokenObj.email)) {
+      this.taskCreationForm.value.taskUsers.push(tokenObj.email)
+    }
+  }
   createTask() {
-    this.taskCreationForm.value.taskUsers = ["kranthimandava953@gmail.com"]
+    this.taskCreationForm.controls['taskUsers'].setValue([ this.taskCreationForm.value.email]);
+    this.addCurrentUserToAttedees();
     this.taskCreationForm.value.time = this.selectedTime;
     this.curdService.createTask(this.taskCreationForm.value).subscribe(async (resp: any) => {
       this.toastr.success(resp.message);

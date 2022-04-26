@@ -4,34 +4,22 @@
         <ul>
             <li [routerLink]="['/dashboard/home']"><a><i class="fas fa-home"></i>Home</a></li>
             <li [routerLink]="['/dashboard/profile']"><a><i class="fas fa-user"></i>Profile</a></li>
-            <li><a><i class="fas fa-address-card"></i>About</a></li>
-            <li><a><i class="fas fa-project-diagram"></i>portfolio</a></li>
-            <li><a><i class="fas fa-blog"></i>Blogs</a></li>
-            <li><a><i class="fas fa-address-book"></i>Contact</a></li>
-            <li><a><i class="fas fa-map-pin"></i>Map</a></li>
+            <!-- <li><a><i class="fas fa-project-diagram"></i>portfolio</a></li> -->
+            <!-- <li><a><i class="fas fa-blog"></i>Blogs</a></li> -->
+            <li [routerLink]="['/dashboard/contact']"><a><i class="fas fa-address-book"></i>Contact</a></li>
+            <li (click)="goToChangePassword()"><a><i class="fas fa-map-pin"></i>Settings</a></li>
+            <li [routerLink]="['/dashboard/about']"><a><i class="fas fa-address-card"></i>About</a></li>
             <li (click)="signOut()"><a><i class="fas fa-map-pin"></i>Signout</a></li>
         </ul>
         <div class="social_media">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a><i class="fab fa-facebook-f"></i></a>
+            <a><i class="fab fa-twitter"></i></a>
+            <a><i class="fab fa-instagram"></i></a>
         </div>
     </div>
     <div class="main_content">
         <div class="header row-spb">
             Welcome!! Have a nice day.
-            <!-- <div class="dropdown">
-                <button class="dropbtn">Dropdown</button>
-                <div class="dropdown-content">
-                    <a href="#">Create Task</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div> -->
-            <!-- <select (change)="onChange($event.target)">
-                <option *ngFor="let i of options">{{i}}</option>
-            </select> -->
-
             <div class="pstn-rlative">
                 <button class="crt-btn" (click)="createClick()">Create</button>
                 <div class="crt-list" *ngIf="iscreateClick">
@@ -40,16 +28,8 @@
                         <li (click)="goToEvent()">Event</li>
                         <li (click)="goToTaskDetails()">Tasks details</li>
                         <li (click)="goToEventDetails()">Events details</li>
-                        <li (click)="goToChangePassword()">Change passwrod</li>
                     </ul>
                 </div>
-            </div>
-        </div>
-        <div class="info" *ngIf="false">
-            <div>
-                <button (click)="openDialog()">creatTask</button>
-                <button (click)="goToEvent()">goToEvent</button>
-                <button (click)="goToTaskDetails()">goToTaskDetails</button>
             </div>
         </div>
         <div class="info">

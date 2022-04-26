@@ -4,7 +4,7 @@
 		<form [formGroup]="taskCreationForm" autocomplete="off">
 			<label>Create Task</label>
 			<input type="text" name="txt" placeholder="Title" required="" formControlName="title">
-            <input placeholder="priority" formControlName="priority">
+            <input placeholder="priority (High, Medium, Low)" formControlName="priority">
             <input type="email" name="txt" placeholder="Assign to, enter email whom to assign" required="" formControlName="email">
             <!-- <input type="text" onfocus="(this.type='date')" name="txt" placeholder="Task finsih date" required="" [min]="todayDate" formControlName="finsihTime"> -->
 			<div>

@@ -125,7 +125,6 @@ export class CurdService {
     return this.requestSenderService.send(requestObj);
   }
   storeFile(postObj:any) {
-  console.log("what's happening", postObj)
     const requestObj = {
       path: 'event/storeFile',
       method: 'POST',
@@ -137,6 +136,14 @@ export class CurdService {
     const requestObj = {
       path: `event/delete/${eventId}`,
       method: 'DELETE'
+    }
+    return this.requestSenderService.send(requestObj);
+  }
+  contactfeedback(postObj:any) {
+    const requestObj = {
+      path: 'user/contact_feedback',
+      method: 'POST',
+      body: postObj
     }
     return this.requestSenderService.send(requestObj);
   }

@@ -17,10 +17,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private router: Router, public dialog: MatDialog, private curdService: CurdService) { }
 
-  ngOnInit(): void {
-   
-  }
-  options = ["Create+", "Task", "Event", "Go to tasks", "Edit event"]
+  ngOnInit(): void {}
   openDialog() {
     const dialogRef = this.dialog.open(TaskComponent);
 
