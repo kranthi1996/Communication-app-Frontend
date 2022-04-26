@@ -42,8 +42,13 @@ body {
 // }
 
 .signup {
+  h1 {
+    text-align: center;
+  }
+
   form {
     padding: 20px 130px;
+
 
     label {
       margin-bottom: 10px;
@@ -84,10 +89,6 @@ textarea {
   cursor: pointer;
 }
 
-// button:hover {
-//   background: #6d44b8;
-// }
-
 .login {
   height: 460px;
   background: #eee;
@@ -117,14 +118,6 @@ textarea {
   height: 50px;
 }
 
-.mb20 {
-  margin-bottom: 20px;
-}
-
-.mr30 {
-  margin-right: 30px;
-}
-
 .colmn-fields {
   display: flex;
   flex-direction: column;
@@ -139,10 +132,7 @@ textarea {
   position: absolute;
   top: 35px;
   left: 10px;
-}
-
-.flx01 {
-  flex: 1;
+  margin-right: 8px;
 }
 
 .timelist-menu {
@@ -185,11 +175,14 @@ textarea {
   border-radius: 5px;
   border: 1px solid #c3c3c3;
 }
+
 .remove_email {
   cursor: pointer;
 }
-form{
-  height:600px;overflow-y:auto;
+
+form {
+  height: 600px;
+  overflow-y: auto;
 }
 .img{
   width: 261px;

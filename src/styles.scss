@@ -192,6 +192,18 @@
   // regular style toast
 @import '~ngx-toastr/toastr';
 
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.mr30 {
+  margin-right: 30px;
+}
+
+.flx01 {
+  flex: 1;
+}
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
