@@ -124,6 +124,22 @@ export class CurdService {
     }
     return this.requestSenderService.send(requestObj);
   }
+  storeFile(postObj:any) {
+  console.log("what's happening", postObj)
+    const requestObj = {
+      path: 'event/storeFile',
+      method: 'POST',
+      body: postObj
+    }
+    return this.requestSenderService.send(requestObj);
+  }
+  deleteEvent(eventId:any) {
+    const requestObj = {
+      path: `event/delete/${eventId}`,
+      method: 'DELETE'
+    }
+    return this.requestSenderService.send(requestObj);
+  }
 }
 
 

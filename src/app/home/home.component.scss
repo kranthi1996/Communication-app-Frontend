@@ -1,0 +1,50 @@
+h2 {
+    color: #000000;
+  }  
+  .main-container {
+    padding: 20px 30px;
+  }
+  
+  .event-details-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
+  
+    .evnt-dtl-card {
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      transition: .3s ease-in-out;
+  
+      img {
+        width: 278px;
+        height: 155px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+  
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0 10px 22px 0 rgb(29 29 29 / 15%);
+      }
+  
+      .card-title {
+        font-size: 18px;
+        color: #000000;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 240px;
+      }
+  
+      .time-stamp {
+        font-size: 14px;
+        color: #3c3c3c;
+        font-weight: 400;
+      }
+    }
+  }
+  .delete_icon{
+    border-radius: 200px;
+    margin-left: 200px;
+  }

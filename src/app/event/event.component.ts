@@ -1,8 +1,10 @@
+import { ConfiramtionEmailComponent } from './../confirmation-email/confirmation-email.component';
 import { DataService } from './../services/data.service';
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { CurdService } from '../services/curd.service';
+import { AuthGuard } from '../services/auth.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
@@ -15,6 +17,9 @@ export class EventComponent implements OnInit {
   eventForm: FormGroup;
   inPerson: boolean = false;
   isPrivate: boolean = false;
+  profilePicSrc: string = 'https://masters-project-bucket.s3.eu-west-2.amazonaws.com/file1';
+  file: string = '';
+  uploadImage: boolean = false;
   selected = [
     '12:00 AM', '12:15 AM', '12:30 AM', '12:45 AM',
     '1:00 AM', '1:15 AM', '1:30 AM', '1:45 AM',
@@ -41,13 +46,13 @@ export class EventComponent implements OnInit {
     '10:00 PM', '10:15 PM', '10:30 PM', '10:45 PM',
     '11:00 PM', '11:15 PM', '11:30 PM', '11:45 PM',
   ];
-  attendees: any = ['k@gmail.com', 'l@gmail.com', 'm@gmail.com', 'n@gmail.com'];
+  attendees: any = [];
   selectedTime: any;
   selectedEndTime: any;
   isEndtimeList: boolean = false;
   istimeList: boolean = false;
 
-  constructor(private dataService:DataService, private router: Router, public dialogRef: MatDialogRef<EventComponent>, private fb: FormBuilder, private curdService: CurdService, private toastr: ToastrService) {
+  constructor(private dataService: DataService, private router: Router, public dialogRef: MatDialogRef<EventComponent>, private authService: AuthGuard, private fb: FormBuilder, private curdService: CurdService, private toastr: ToastrService) {
     this.eventForm = this.fb.group({
       name: ["", [Validators.required, Validators.maxLength(255)]],
       type: [""],
@@ -62,20 +67,44 @@ export class EventComponent implements OnInit {
       description: [""],
       speakers: [""],
       address: [""],
-      venue: [""]
+      venue: [""],
+      //file: [""]
     })
   }
 
   ngOnInit(): void {
+
+  }
+  addCurrentUserToAttedees() {
+    const tokenObj: any = this.authService.decodedToken();
+    if (!this.attendees.includes(tokenObj.email)) {
+      this.attendees.push(tokenObj.email)
+    }
+  }
+  setAttendees() {
+    this.eventForm.value.attendees = this.attendees;
   }
   createEvent() {
-    this.eventForm.value.attendees = this.attendees;
+    this.addCurrentUserToAttedees();
+    this.setAttendees();
+   //this.eventForm.controls['file'].setValue(this.file);
     console.log(this.eventForm.value);
     this.curdService.createEvent(this.eventForm.value).subscribe(async (resp: any) => {
       this.toastr.success(resp.message);
       this.dataService.setEvent();
       this.closeDialog();
       this.router.navigateByUrl('/dashboard/event-details');
+    }, (err: any) => {
+      console.log(err);
+      this.toastr.error(err.error.errObj.message);
+    });
+  }
+  storeFile(file: any) {
+    const formData = new FormData();
+    formData.append('file', file);
+    //console.log(formData.getAll('file')[0]);
+    const fileObj = formData.getAll('file')[0];
+    this.curdService.storeFile(fileObj).subscribe(async (resp: any) => {
     }, (err: any) => {
       console.log(err);
       this.toastr.error(err.error.errObj.message);
@@ -130,5 +159,20 @@ export class EventComponent implements OnInit {
     this.selectedEndTime = value;
     this.eventForm.patchValue({ endTime: this.selectedEndTime });
     this.isEndtimeList = false;
+  }
+  async handleFileInput(event: any) {
+    //if(event.target.files.length>0) {
+    //await this.storeFile(file);
+    //}
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.profilePicSrc = reader.result as string;
+      this._iSUploadImage();
+    };
+    reader.readAsDataURL(file);
+  }
+  _iSUploadImage() {
+    this.uploadImage = true;
   }
 }

@@ -1,3 +1,4 @@
+import { CurdService } from './../services/curd.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,9 +14,12 @@ import { ChangePasswordComponent } from '../change-password/change-password.comp
 })
 export class DashboardComponent implements OnInit {
   iscreateClick: boolean = false;
-  constructor(private router: Router, public dialog: MatDialog) { }
 
-  ngOnInit(): void { }
+  constructor(private router: Router, public dialog: MatDialog, private curdService: CurdService) { }
+
+  ngOnInit(): void {
+   
+  }
   options = ["Create+", "Task", "Event", "Go to tasks", "Edit event"]
   openDialog() {
     const dialogRef = this.dialog.open(TaskComponent);
@@ -65,5 +69,13 @@ export class DashboardComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
     this.iscreateClick = false;
+  }
+  getPrivateEvents() {
+    this.curdService.getPrivateEvents().subscribe(async (resp: any) => {
+      console.log(resp.data);
+      //this.privateEvents = resp.data;
+    }, (err: any) => {
+      //this.toastr.error(err.error.errObj.message);
+    });
   }
 }

@@ -25,7 +25,8 @@
             <div class="radio-btns mb20 colmn-fields">
                 <label>Public/Private</label>
                 <mat-radio-group aria-label="Select an option">
-                    <mat-radio-button value="Public" class="mr30" (change)="eventAccess($event)">Public</mat-radio-button>
+                    <mat-radio-button value="Public" class="mr30" (change)="eventAccess($event)">Public
+                    </mat-radio-button>
                     <mat-radio-button value="Private" (change)="eventAccess($event)">Private</mat-radio-button>
                 </mat-radio-group>
             </div>
@@ -39,7 +40,7 @@
             <div class="pstn-rlative" *ngIf="isPrivate">
                 <label>attendees</label>
                 <input type="email" name="txt" placeholder="Assign to, enter email whom to assign" required=""
-                     (focusout)="onFocusOutEvent($event)">
+                    (focusout)="onFocusOutEvent($event)">
                 <div class="chip-text" *ngFor="let attendee of attendees; let i = index">
                     <span>{{attendee}}</span>&nbsp;<span class="remove_email"
                         (click)="removeEmail(attendees, i)">x</span>
@@ -65,6 +66,10 @@
                     </div>
                 </div>
             </div>
+             <!-- <div>
+                <img type="file" name="file" id="file" [src]="profilePicSrc" class="img" *ngIf="uploadImage">
+                <input type="file" name="file" id="file" (change)="handleFileInput($event)" />
+            </div>  -->
             <div class="row-b">
                 <div class="mr30 flx01">
                     <label>End Date</label>
