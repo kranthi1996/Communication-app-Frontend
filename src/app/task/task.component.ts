@@ -11,7 +11,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class TaskComponent implements OnInit {
   taskCreationForm: FormGroup;
-  todayDate:Date = new Date();
+  todayDate: Date = new Date();
   istimeList: boolean = false;
   selectedTime: any;
   selected = [
@@ -40,20 +40,22 @@ export class TaskComponent implements OnInit {
     '10:00 PM', '10:15 PM', '10:30 PM', '10:45 PM',
     '11:00 PM', '11:15 PM', '11:30 PM', '11:45 PM',
   ];
-  constructor(public dialogRef: MatDialogRef<TaskComponent>, private fb: FormBuilder, private curdService: CurdService, private toastr: ToastrService, private dataService:DataService) {
+  constructor(public dialogRef: MatDialogRef<TaskComponent>, private fb: FormBuilder, private curdService: CurdService, private toastr: ToastrService, private dataService: DataService) {
     this.taskCreationForm = this.fb.group({
       title: ["", [Validators.required, Validators.maxLength(255)]],
-      priority: ["High"],
+      priority: [""],
       email: [""],
-      finsihTime: [""],
+      date: [""],
+      time: [""],
       description: [""],
-      taskUsers:[""]
+      taskUsers: [""]
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   createTask() {
     this.taskCreationForm.value.taskUsers = ["kranthimandava953@gmail.com"]
+    this.taskCreationForm.value.time = this.selectedTime;
     this.curdService.createTask(this.taskCreationForm.value).subscribe(async (resp: any) => {
       this.toastr.success(resp.message);
       this.dataService.setCreateTask();

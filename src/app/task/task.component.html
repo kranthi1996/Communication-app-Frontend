@@ -4,13 +4,13 @@
 		<form [formGroup]="taskCreationForm" autocomplete="off">
 			<label>Create Task</label>
 			<input type="text" name="txt" placeholder="Title" required="" formControlName="title">
-            <input placeholder="priority">
+            <input placeholder="priority" formControlName="priority">
             <input type="email" name="txt" placeholder="Assign to, enter email whom to assign" required="" formControlName="email">
             <!-- <input type="text" onfocus="(this.type='date')" name="txt" placeholder="Task finsih date" required="" [min]="todayDate" formControlName="finsihTime"> -->
 			<div>
 				<div class="row-b">
 					<div class="mr30 flx01">
-						<input type="text" onfocus="(this.type='date')" name="txt" placeholder="Start date" required="">
+						<input type="text" onfocus="(this.type='date')" name="txt" placeholder="Start date" required="" formControlName="date">
 					</div>
 					<div class="flx01 pstn-rlative">
 						<div class="colmn-fields">

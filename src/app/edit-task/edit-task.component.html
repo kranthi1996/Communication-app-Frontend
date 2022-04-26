@@ -2,13 +2,32 @@
 	<input type="checkbox" id="chk" aria-hidden="true">
 	<div class="signup">
 		<form [formGroup]="taskEditForm" autocomplete="off">
-			<span><label>Task Preview</label></span>
+			<label>Task Preview</label>
 			<input type="text" name="txt" placeholder="Title" required="" formControlName="title">
-            <input placeholder="priority">
+            <input placeholder="priority" formControlName="priority">
             <input type="email" name="txt" placeholder="Assign to, enter email whom to assign" required="" formControlName="email">
-            <input type="date" name="txt" placeholder="description" required="" formControlName="finsihTime">
+            <!-- <input type="text" onfocus="(this.type='date')" name="txt" placeholder="Task finsih date" required="" [min]="todayDate" formControlName="finsihTime"> -->
+			<div>
+				<div class="row-b">
+					<div class="mr30 flx01">
+						<input type="text" onfocus="(this.type='date')" name="txt" placeholder="Start date" required="" formControlName="date">
+					</div>
+					<div class="flx01 pstn-rlative">
+						<div class="colmn-fields">
+							<button type="button" class="time-btn" (click)="timeList()">{{selectedTime}}</button>
+						</div>
+						<div *ngIf="istimeList" class="timelist-menu">
+							<ul>
+								<li *ngFor="let value of selected" (click)="onselectedTime(value)" [value]="value">
+									{{value}}
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
             <input class ="textarea" type="text" name="txt" placeholder="description" required="" formControlName="description">
-			<button *ngIf="enableEdit">Update</button>
+			<!-- <button class="crt-btn" *ngIf="enableEdit">Update</button> -->
 		</form>
 	</div>
 </div>
