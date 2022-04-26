@@ -11,8 +11,101 @@ import { DataService } from '../services/data.service';
 })
 export class EventDetailsComponent implements OnInit {
 
-  publicEvents: any = [];
-  privateEvents: any = [];
+  publicEvents: any = [
+    {
+      name: 'hello',
+      startDate: '20 - 12 - 2022',
+      startTime: '12: 56 AM',
+      endDate: '20 - 12 - 2022',
+      endTime: '12: 56 AM',
+      type: "ONLINE",
+      eventaccess: "PUBLIC",
+      attendees: ['kranthimandava@gmail.com', "venky@gmail.com"],
+      link: "http://localhost:4200/dashboard/event-details",
+      description: "Event details",
+      speakers: ['kranthi@gmail.com'],
+      address: ["Hyd"],
+      venue: ["hyd"]
+    },
+    {
+      name: 'hello',
+      startDate: '20 - 12 - 2022',
+      startTime: '12: 56 AM',
+      endDate: '20 - 12 - 2022',
+      endTime: '12: 56 AM',
+      type: "INPERSON",
+      eventaccess: "PRIVATE",
+      attendees: ['kranthimandava@gmail.com', "venky@gmail.com"],
+      link: "http://localhost:4200/dashboard/event-details",
+      description: "Event details",
+      speakers: ['kranthi@gmail.com'],
+      address: ["Hyd"],
+      venue: ["hyd"]
+    },
+    {
+      name: 'hello',
+      startDate: '20 - 12 - 2022',
+      startTime: '12: 56 AM',
+      endDate: '20 - 12 - 2022',
+      endTime: '12: 56 AM',
+      type: "ONLINE",
+      eventaccess: "PUBLIC",
+      attendees: ['kranthimandava@gmail.com', "venky@gmail.com"],
+      link: "http://localhost:4200/dashboard/event-details",
+      description: "Event details",
+      speakers: ['kranthi@gmail.com'],
+      address: ["Hyd"],
+      venue: ["hyd"]
+    },
+    {
+      name: 'hello',
+      startDate: '20 - 12 - 2022',
+      startTime: '12: 56 AM',
+      endDate: '20 - 12 - 2022',
+      endTime: '12: 56 AM',
+      type: "ONLINE",
+      eventaccess: "PUBLIC",
+      attendees: ['kranthimandava@gmail.com', "venky@gmail.com"],
+      link: "http://localhost:4200/dashboard/event-details",
+      description: "Event details",
+      speakers: ['kranthi@gmail.com'],
+      address: ["Hyd"],
+      venue: ["hyd"]
+    },
+  ];
+  privateEvents: any = [
+    {
+      name: 'hello',
+      startDate: '20 - 12 - 2022',
+      startTime: '12: 56 AM',
+      endDate: '20 - 12 - 2022',
+      endTime: '12: 56 AM',
+      type: "ONLINE",
+      eventaccess: "PUBLIC",
+      attendees: ['kranthimandava@gmail.com', "venky@gmail.com"],
+      link: "http://localhost:4200/dashboard/event-details",
+      description: "Event details",
+      speakers: ['kranthi@gmail.com'],
+      address: ["Hyd"],
+      venue: ["hyd"]
+    },
+    {
+      name: 'hello',
+      startDate: '20 - 12 - 2022',
+      startTime: '12: 56 AM',
+      endDate: '20 - 12 - 2022',
+      endTime: '12: 56 AM',
+      type: "INPERSON",
+      eventaccess: "PRIVATE",
+      attendees: ['kranthimandava@gmail.com', "venky@gmail.com"],
+      link: "http://localhost:4200/dashboard/event-details",
+      description: "Event details",
+      speakers: ['kranthi@gmail.com'],
+      address: ["Hyd"],
+      venue: ["hyd"]
+    }
+  ]
+  
   constructor(private dataService: DataService, public dialog: MatDialog, private curdService: CurdService, private toastr: ToastrService) {
     this.dataService.getEventObservable().subscribe(data => {
       if (data) {

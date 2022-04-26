@@ -102,7 +102,7 @@ h2 {
 
 .event-details-container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 280px 280px 280px 280px;
   gap: 20px;
 
   .evnt-dtl-card {
@@ -120,6 +120,7 @@ h2 {
     &:hover {
       cursor: pointer;
       box-shadow: 0 10px 22px 0 rgb(29 29 29 / 15%);
+      border: none;
     }
 
     .card-title {
